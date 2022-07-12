@@ -14,36 +14,33 @@ class _ContadorPageState extends State<ContadorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Contador'), centerTitle: true),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Clicks:', style: _textStyle),
-              Text('$_conteo', style: _textStyle),
-            ],
-          ),
+      appBar: AppBar(title: const Text('Contador'), centerTitle: true),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Clicks:', style: _textStyle),
+            Text('$_conteo', style: _textStyle),
+          ],
         ),
-        floatingActionButton: _crearBotones()
-        // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        );
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: _crearBotones(),
+    );
   }
 
   Widget _crearBotones() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const SizedBox(),
         FloatingActionButton(
           onPressed: _restar,
           child: const Icon(Icons.remove),
         ),
-        const SizedBox(),
         FloatingActionButton(
           onPressed: _reset,
           child: const Icon(Icons.exposure_zero_sharp),
         ),
-        const SizedBox(),
         FloatingActionButton(
           onPressed: _sumar,
           child: const Icon(Icons.add),
@@ -57,7 +54,7 @@ class _ContadorPageState extends State<ContadorPage> {
   }
 
   void _restar() {
-    setState(() => {if (_conteo > 0) _conteo--});
+    setState(() => _conteo--);
   }
 
   void _reset() {
